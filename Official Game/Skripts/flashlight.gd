@@ -9,7 +9,6 @@ var down_rotation = deg_to_rad(90)
 var up_rotation = 0  
 
 
-
 func _ready():
 	Light.visible = false
 	set_process(true)
