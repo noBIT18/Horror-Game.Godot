@@ -1,4 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://kiq22idah1hq"]
+[gd_scene load_steps=8 format=3 uid="uid://kiq22idah1hq"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_u80ol"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_i835h"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_bdnmy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r011s"]
+metallic = 0.75
+metallic_specular = 0.48
+metallic_texture = SubResource("CurveTexture_i835h")
+roughness = 0.7
+roughness_texture = SubResource("MeshTexture_bdnmy")
+rim_enabled = true
+detail_mask = SubResource("MeshTexture_u80ol")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0cbu"]
 
@@ -13,6 +28,7 @@ material = SubResource("StandardMaterial3D_u0cbu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_r011s")
 mesh = SubResource("PlaneMesh_jt508")
 skeleton = NodePath("../..")
 
