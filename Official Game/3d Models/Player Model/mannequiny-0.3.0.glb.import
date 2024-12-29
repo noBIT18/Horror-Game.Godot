@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://baend721drt3f"
-path="res://.godot/imported/playground.glb-a4c515c45e44dfa2d98a17214faed102.scn"
+uid="uid://ceosoacrkyhr8"
+path="res://.godot/imported/mannequiny-0.3.0.glb-a89356ddff2bd2d019aee496420dc0b3.scn"
 
 [deps]
 
-source_file="res://Official Game/godot-3d-mannequin-0.3.0/assets/3d/level/playground.glb"
-dest_files=["res://.godot/imported/playground.glb-a4c515c45e44dfa2d98a17214faed102.scn"]
+source_file="res://Official Game/3d Models/Player Model/mannequiny-0.3.0.glb"
+dest_files=["res://.godot/imported/mannequiny-0.3.0.glb-a89356ddff2bd2d019aee496420dc0b3.scn"]
 
 [params]
 
