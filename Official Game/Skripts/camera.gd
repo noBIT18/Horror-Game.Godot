@@ -1,6 +1,6 @@
 extends Node3D
 
-var sens = 0.001
+var sens = 0.0015
 var esc = false
 
 func _ready():
