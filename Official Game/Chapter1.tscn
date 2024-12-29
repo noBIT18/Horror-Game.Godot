@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://qbil515s8e3b"]
+[gd_scene load_steps=16 format=3 uid="uid://qbil515s8e3b"]
 
 [ext_resource type="Shader" path="res://Official Game/Shaders/dither.gdshader" id="1_i0kmh"]
 [ext_resource type="PackedScene" uid="uid://dmypxcelcieop" path="res://Official Game/player.tscn" id="1_rihjn"]
+[ext_resource type="Script" path="res://Official Game/Skripts/flashlightpickup.gd" id="2_8b7kc"]
 [ext_resource type="PackedScene" uid="uid://dr4gqen4asrsi" path="res://Official Game/BGNOISE.tscn" id="3_etfmb"]
 [ext_resource type="PackedScene" uid="uid://bnyd77g1j3vf6" path="res://Official Game/Text3D.tscn" id="4_50j6w"]
 [ext_resource type="ArrayMesh" uid="uid://dfsvcli6ogwhx" path="res://Official Game/3d Models/OBJ/Beretta_M9.obj" id="5_a6wu6"]
@@ -87,6 +88,7 @@ mesh = SubResource("BoxMesh_8aahr")
 
 [node name="wall" type="StaticBody3D" parent="."]
 transform = Transform3D(3.312, 0, 0, 0, 5, 0, 0, 0, 500, 5.35472, 2.99705, 18.4309)
+script = ExtResource("2_8b7kc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="wall"]
 shape = SubResource("BoxShape3D_1i3ju")
