@@ -124,7 +124,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.306
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("3_etfmb")]
 
 [node name="Sprite3D" parent="." instance=ExtResource("4_50j6w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 6.15763, -0.686603, 2.08224, 135.503)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 6.15763, -0.686603, 1.37488, 135.503)
 flip_h = true
 shaded = true
 texture = SubResource("ViewportTexture_80yoe")

@@ -18,7 +18,6 @@ offset_bottom = 23.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_ictn7")
 theme_override_font_sizes/font_size = 64
-text = "           |RUN -SHITF-|
-   |USE UR FLASHLIGHT -F-|
+text = "   |USE UR FLASHLIGHT -F-|
 ESCAPE FROM THE TUNNEL
 YOU ARE YOUR OWN ENEMY"
