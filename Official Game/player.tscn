@@ -1,0 +1,175 @@
+[gd_scene load_steps=14 format=3 uid="uid://dmypxcelcieop"]
+
+[ext_resource type="Script" path="res://Official Game/Skripts/PlayerManager.gd" id="1_3mens"]
+[ext_resource type="Script" path="res://Official Game/Skripts/camera.gd" id="2_7tsai"]
+[ext_resource type="PackedScene" uid="uid://cwpovj26dtrhm" path="res://Official Game/flashlight.tscn" id="3_bxxxc"]
+[ext_resource type="Script" path="res://Official Game/Picked_up.gd" id="4_lumi2"]
+[ext_resource type="PackedScene" uid="uid://be3ekg6dii0dx" path="res://Official Game/ui.tscn" id="4_lvvba"]
+[ext_resource type="AudioStream" uid="uid://bxf8wt03hdvpc" path="res://Official Game/Sounds/WalkingSounds.MP3" id="4_somov"]
+[ext_resource type="Script" path="res://Official Game/Skripts/raycast.gd" id="5_4txwi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1pxgx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_86j8w"]
+radial_segments = 14
+
+[sub_resource type="Animation" id="Animation_cjvfc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.53015, -0.132203, -0.386506)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../../Footstep:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ghnni"]
+resource_name = "flashmoving"
+capture_included = true
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 2,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_1yu1l"]
+resource_name = "flashss"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.53015, -0.132203, -0.386506), Vector3(0.53, -0.176, -0.387), Vector3(0.53015, -0.126352, -0.386506)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.00204456, -0.00203639), Vector3(0.045, 0.103, -0.002), Vector3(0, -0.082, -0.002)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../../Footstep")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../../Footstep:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.266667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cjnd1"]
+_data = {
+"RESET": SubResource("Animation_cjvfc"),
+"flashmoving": SubResource("Animation_ghnni"),
+"flashss": SubResource("Animation_1yu1l")
+}
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_3mens")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_1pxgx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_86j8w")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00658345, 0.621622, 0.00658207)
+script = ExtResource("2_7tsai")
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0277992)
+
+[node name="Flashlight" parent="head/Camera3D" instance=ExtResource("3_bxxxc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53015, -0.132203, -0.386506)
+script = ExtResource("4_lumi2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="head/Camera3D/Flashlight"]
+libraries = {
+"": SubResource("AnimationLibrary_cjnd1")
+}
+autoplay = "flashss"
+
+[node name="UI" parent="head/Camera3D" instance=ExtResource("4_lvvba")]
+
+[node name="RayCast3D" type="RayCast3D" parent="head"]
+transform = Transform3D(12.86, 0, 0, 0, -8.30516e-08, -6.61, 0, 1.9, -2.88932e-07, 0, 0, 0)
+script = ExtResource("5_4txwi")
+
+[node name="Footstep" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_somov")
+volume_db = 7.62
+unit_size = 52.82
+max_db = -4.428
+pitch_scale = 0.81
+panning_strength = 1.57
+emission_angle_enabled = true
+doppler_tracking = 1

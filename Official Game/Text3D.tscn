@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnyd77g1j3vf6"]
+
+[ext_resource type="FontFile" uid="uid://cfmotf846si5p" path="res://Official Game/Text/Wizardry Night.ttf" id="1_ictn7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xtmjj"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Sprite3D" type="Sprite3D"]
+texture = SubResource("ViewportTexture_xtmjj")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(700, 300)
+
+[node name="Label" type="Label" parent="SubViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ictn7")
+theme_override_font_sizes/font_size = 64
+text = "           |RUN -SHITF-|
+   |USE UR FLASHLIGHT -F-|
+ESCAPE FROM THE TUNNEL
+YOU ARE YOUR OWN ENEMY"

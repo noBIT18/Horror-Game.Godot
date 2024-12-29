@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwpovj26dtrhm"]
+
+[ext_resource type="PackedScene" uid="uid://2adqeo4r6x20" path="res://Official Game/3d Models/tactical_flashlight.glb" id="1_tntpk"]
+[ext_resource type="Script" path="res://Official Game/Skripts/flashlight.gd" id="2_g04jd"]
+
+[node name="Flashlight1" type="Node3D"]
+transform = Transform3D(-0.272247, -0.962228, 0, 0.962228, -0.272247, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Flashlight" parent="." instance=ExtResource("1_tntpk")]
+transform = Transform3D(1.16872e-08, -0.963593, 0.267373, -4.212e-08, -0.267373, -0.963593, 1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("2_g04jd")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Flashlight"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.999999, -5.15143e-14, -0.999999, 0, -4.37114e-08, -0.345029, 3.64213e-15, 1.50817e-08)
+visible = false
+light_color = Color(1, 1, 0.631373, 1)
+distance_fade_begin = 20.0
+distance_fade_length = 100.0

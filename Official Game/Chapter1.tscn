@@ -1,0 +1,144 @@
+[gd_scene load_steps=15 format=3 uid="uid://qbil515s8e3b"]
+
+[ext_resource type="Shader" path="res://Official Game/Shaders/dither.gdshader" id="1_i0kmh"]
+[ext_resource type="PackedScene" uid="uid://dmypxcelcieop" path="res://Official Game/player.tscn" id="1_rihjn"]
+[ext_resource type="PackedScene" uid="uid://dr4gqen4asrsi" path="res://Official Game/BGNOISE.tscn" id="3_etfmb"]
+[ext_resource type="PackedScene" uid="uid://bnyd77g1j3vf6" path="res://Official Game/Text3D.tscn" id="4_50j6w"]
+[ext_resource type="ArrayMesh" uid="uid://dfsvcli6ogwhx" path="res://Official Game/3d Models/OBJ/Beretta_M9.obj" id="5_a6wu6"]
+[ext_resource type="AudioStream" uid="uid://bjguof61x0jn5" path="res://Official Game/Sounds/Do it.MP3" id="6_en1sg"]
+[ext_resource type="PackedScene" uid="uid://da5c4j1wmor5x" path="res://Official Game/Objects/lamp.tscn" id="7_8u27r"]
+
+[sub_resource type="GDScript" id="GDScript_3vv1t"]
+
+[sub_resource type="Environment" id="Environment_twek8"]
+background_mode = 1
+background_energy_multiplier = 0.0
+sky_custom_fov = 68.2
+ambient_light_source = 3
+ambient_light_energy = 1.17
+tonemap_exposure = 1.7
+ssr_enabled = true
+ssr_max_steps = 60
+ssr_fade_in = 0.702396
+ssr_fade_out = 1.1487
+ssr_depth_tolerance = 5.61
+ssao_enabled = true
+ssao_radius = 2.35
+ssil_radius = 16.0
+ssil_intensity = 16.0
+ssil_sharpness = 1.0
+glow_enabled = true
+adjustment_enabled = true
+adjustment_brightness = 0.66
+adjustment_contrast = 2.01
+adjustment_saturation = 2.18
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_f6wc5"]
+exposure_multiplier = 0.65
+frustum_near = 0.006
+frustum_far = 10.0
+auto_exposure_max_exposure_value = 0.81
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1i3ju"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8aahr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_djj1w"]
+render_priority = 0
+shader = ExtResource("1_i0kmh")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_80yoe"]
+viewport_path = NodePath("SubViewport")
+
+[node name="chapter1" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.59095)
+script = SubResource("GDScript_3vv1t")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_twek8")
+camera_attributes = SubResource("CameraAttributesPhysical_f6wc5")
+
+[node name="Lamps" type="Node" parent="."]
+
+[node name="Lamp" parent="Lamps" instance=ExtResource("7_8u27r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5457, 2.76199, 134.964)
+
+[node name="Lamp2" parent="Lamps" instance=ExtResource("7_8u27r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.546, 2.762, 100)
+
+[node name="Lamp3" parent="Lamps" instance=ExtResource("7_8u27r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.546, 2.762, 75)
+
+[node name="Lamp4" parent="Lamps" instance=ExtResource("7_8u27r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.546, 2.762, 50)
+
+[node name="floor" type="StaticBody3D" parent="."]
+transform = Transform3D(17.589, 0, 0, 0, 1, 0, 0, 0, 500, 0, 0.166, 18.263)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+shape = SubResource("BoxShape3D_1i3ju")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+mesh = SubResource("BoxMesh_8aahr")
+
+[node name="wall" type="StaticBody3D" parent="."]
+transform = Transform3D(3.312, 0, 0, 0, 5, 0, 0, 0, 500, 5.35472, 2.99705, 18.4309)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall"]
+shape = SubResource("BoxShape3D_1i3ju")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall"]
+mesh = SubResource("BoxMesh_8aahr")
+
+[node name="wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(1.21917, 0, 0, 0, 6.77192, 0, 0, 0, 504.862, -5.251, 2.997, 20.551)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall4"]
+shape = SubResource("BoxShape3D_1i3ju")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall4"]
+mesh = SubResource("BoxMesh_8aahr")
+
+[node name="wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(14.5128, 0, 0, 0, 5, 0, 0, 0, -3.55659, 0.107683, 2.95633, 137.282)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall2"]
+shape = SubResource("BoxShape3D_1i3ju")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall2"]
+mesh = SubResource("BoxMesh_8aahr")
+surface_material_override/0 = SubResource("ShaderMaterial_djj1w")
+
+[node name="wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(22.902, 0, 0, 0, 1.02, 0, 0, 0, 519.72, -0.870003, 5.74071, 28.3316)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall3"]
+shape = SubResource("BoxShape3D_1i3ju")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall3"]
+mesh = SubResource("BoxMesh_8aahr")
+
+[node name="player" parent="." instance=ExtResource("1_rihjn")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.306898, 1.65961, 132.262)
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("3_etfmb")]
+
+[node name="Sprite3D" parent="." instance=ExtResource("4_50j6w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 6.15763, -0.686603, 2.08224, 135.503)
+flip_h = true
+shaded = true
+texture = SubResource("ViewportTexture_80yoe")
+
+[node name="BerettaM9" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0170825, 0, -0.0104014, 0, 0.02, 0, 0.0104014, 0, 0.0170825, -0.569, 0.704, 97.396)
+mesh = ExtResource("5_a6wu6")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="BerettaM9"]
+stream = ExtResource("6_en1sg")
+unit_size = 7.0
+max_db = -3.0
+autoplay = true
+max_distance = 6.0
+panning_strength = 1.29
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]

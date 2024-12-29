@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr4gqen4asrsi"]
+
+[ext_resource type="AudioStream" uid="uid://cna2p0egarpoc" path="res://Official Game/Sounds/tv-static-6411.mp3" id="1_kxdgm"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_kxdgm")
+volume_db = -25.297
+autoplay = true

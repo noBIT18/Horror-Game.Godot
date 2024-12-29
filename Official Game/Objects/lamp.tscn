@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://da5c4j1wmor5x"]
+
+[ext_resource type="PackedScene" uid="uid://bwr6yds4tw0wf" path="res://Official Game/3d Models/lamp.glb" id="1_fbhpx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6nmlf"]
+size = Vector3(1, 1.79593, 1)
+
+[node name="Lamp" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0923, 0, 4.30531)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_fbhpx")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0503, 2.55539, -4.34759)
+shape = SubResource("BoxShape3D_6nmlf")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Sketchfab_Scene"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 20.9873, 1.57351, -4.24702)
+light_color = Color(1, 1, 0.105882, 1)
+light_energy = 1.97
+light_size = 0.525
+shadow_enabled = true
+spot_range = 11.041
+spot_angle = 75.86
