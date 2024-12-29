@@ -1,5 +1,18 @@
-[gd_scene format=3 uid="uid://kiq22idah1hq"]
+[gd_scene load_steps=3 format=3 uid="uid://kiq22idah1hq"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jt508"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5v3n1"]
 
 [node name="Ausbildung" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("PlaneMesh_jt508")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(9.83, 0, 0, 0, 0.01, 0, 0, 0, 9.83, 0, 0, 0)
+shape = SubResource("BoxShape3D_5v3n1")
