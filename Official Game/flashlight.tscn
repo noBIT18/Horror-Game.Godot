@@ -17,4 +17,4 @@ light_color = Color(1, 1, 0.631373, 1)
 light_energy = 2.616
 distance_fade_begin = 20.0
 distance_fade_length = 100.0
-spot_range = 29.19
+spot_range = 40.85
