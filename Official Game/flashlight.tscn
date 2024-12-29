@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwpovj26dtrhm"]
+[gd_scene load_steps=4 format=3 uid="uid://cwpovj26dtrhm"]
 
 [ext_resource type="PackedScene" uid="uid://2adqeo4r6x20" path="res://Official Game/3d Models/tactical_flashlight.glb" id="1_tntpk"]
 [ext_resource type="Script" path="res://Official Game/Skripts/flashlight.gd" id="2_g04jd"]
+[ext_resource type="AudioStream" uid="uid://2he8d30bi0wl" path="res://Official Game/Sounds/flashsound.MP3" id="3_1ptiw"]
 
 [node name="Flashlight1" type="Node3D"]
 transform = Transform3D(-0.272247, -0.962228, 0, 0.962228, -0.272247, 0, 0, 0, 1, 0, 0, 0)
@@ -18,3 +19,9 @@ light_energy = 2.616
 distance_fade_begin = 20.0
 distance_fade_length = 100.0
 spot_range = 40.85
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Flashlight"]
+stream = ExtResource("3_1ptiw")
+volume_db = 10.0
+max_db = 1.125
+pitch_scale = 1.25

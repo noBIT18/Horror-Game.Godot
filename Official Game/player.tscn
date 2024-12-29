@@ -126,10 +126,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00658345, 0.621622, 0.00658
 script = ExtResource("2_7tsai")
 
 [node name="Camera3D" type="Camera3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00204456, -0.00203639)
 
 [node name="Flashlight" parent="head/Camera3D" instance=ExtResource("3_bxxxc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53015, -0.132203, -0.386506)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("4_lumi2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="head/Camera3D/Flashlight"]

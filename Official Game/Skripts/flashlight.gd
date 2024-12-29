@@ -1,5 +1,5 @@
 extends Node3D
-
+@onready var Sound = $AudioStreamPlayer3D
 @onready var Light = $SpotLight3D
 @onready var Player = "res://Official Game/player.tscn"
 
@@ -16,6 +16,7 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("flash") and visible:
+		Sound.playing = true
 		on = !on
 		Light.visible = on  
 		target_rotation = down_rotation if on else up_rotation  
