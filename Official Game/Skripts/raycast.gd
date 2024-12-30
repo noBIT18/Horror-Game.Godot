@@ -2,7 +2,7 @@ extends RayCast3D
 
 signal change_property
 
-func _process(delta: float) -> void:
+func _process(delta):
 	var collider = get_collider()
 	var pointer = get_node("/root/chapter1/player/head/Camera3D/UI/CanvasLayer/Container/Screenshot2024-10-13031926")
 	if is_colliding() and collider.has_method("on_interact"):
