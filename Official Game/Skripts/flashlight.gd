@@ -7,14 +7,22 @@ var on = false
 var target_rotation = 0  
 var down_rotation = deg_to_rad(90)  
 var up_rotation = 0  
+var picked_up 
 
 
 func _ready():
 	Light.visible = false
 	set_process(true)
+	picked_up = false
 
+func picks_up():
+	picked_up = true
 
 func _process(delta):
+	if picked_up:
+		visible = true
+	else:
+		visible = false
 	if Input.is_action_just_pressed("flash") and visible:
 		Sound.playing = true
 		on = !on
