@@ -149,4 +149,4 @@ panning_strength = 1.29
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 
 [node name="flashlight_pickup" parent="." instance=ExtResource("8_licme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0616994, 0.666, 134.166)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0616994, 0.666, 99.479)
