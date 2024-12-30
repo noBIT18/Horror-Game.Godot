@@ -1,5 +1,6 @@
 extends RayCast3D
 
+
 signal change_property
 
 func _process(delta):
@@ -11,6 +12,7 @@ func _process(delta):
 	else:
 		pointer.scale.y = 1
 		pointer.scale.x = 1
+
 	if Input.is_action_just_pressed("Interact"):
 		if is_colliding():
 			print("Collision with:", collider)
