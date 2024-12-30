@@ -12,8 +12,5 @@ func _process(delta):
 		else:
 			pointer.scale.y = 1
 			pointer.scale.x = 1
-	if Input.is_action_just_pressed("Interact"):
-		if is_colliding():
-			print("Collision with:", collider)
-			if collider and collider.has_method("on_interact"):
-				collider.on_interact()
+		if collider and collider.has_method("on_interact") and Input.is_action_just_pressed("Interact"):
+			collider.on_interact()
