@@ -123,9 +123,6 @@ shape = SubResource("BoxShape3D_1i3ju")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall3"]
 mesh = SubResource("BoxMesh_8aahr")
 
-[node name="player" parent="." instance=ExtResource("1_rihjn")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.306898, 1.65961, 132.262)
-
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("3_etfmb")]
 
 [node name="Sprite3D" parent="." instance=ExtResource("4_50j6w")]
@@ -150,3 +147,6 @@ panning_strength = 1.29
 
 [node name="flashlight_pickup" parent="." instance=ExtResource("8_licme")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0616994, 0.666, 99.479)
+
+[node name="player" parent="." instance=ExtResource("1_rihjn")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.306898, 1.65961, 132.262)
