@@ -7,10 +7,10 @@ func _process(delta):
 	var pointer = get_node("/root/chapter1/player/head/Camera3D/UI/CanvasLayer/Container/Screenshot2024-10-13031926")
 	if is_colliding():
 		if collider and collider.has_method("on_interact"):
-			pointer.scale.x = 0.7
-			pointer.scale.y = 0.7
+			pointer.scale.x = 0.25
+			pointer.scale.y = 0.25
 		else:
-			pointer.scale.y = 1
-			pointer.scale.x = 1
+			pointer.scale.y = 0.3
+			pointer.scale.x = 0.3
 		if collider and collider.has_method("on_interact") and Input.is_action_just_pressed("Interact"):
 			collider.on_interact()

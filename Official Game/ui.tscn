@@ -1,16 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://be3ekg6dii0dx"]
+[gd_scene load_steps=2 format=3 uid="uid://be3ekg6dii0dx"]
 
 [ext_resource type="Texture2D" uid="uid://boell6kp82cwe" path="res://Official Game/Textures/Pointer.png" id="1_2tlgp"]
-[ext_resource type="FontFile" uid="uid://cufu047ldevic" path="res://Official Game/Text/Heavitas.ttf" id="1_7ifqe"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_1jq5k"]
-font = ExtResource("1_7ifqe")
-font_size = 40
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 6
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(3.895, 1)
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -21,24 +11,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.935
-anchor_right = 0.5
-anchor_bottom = 0.935
-offset_left = -962.0
-offset_top = -69.8
-offset_right = 958.0
-offset_bottom = 69.2
-theme_override_fonts/font = ExtResource("1_7ifqe")
-theme_override_font_sizes/font_size = 50
-text = "HELLO world"
-label_settings = SubResource("LabelSettings_1jq5k")
-horizontal_alignment = 1
-clip_text = true
-uppercase = true
 
 [node name="Container" type="Container" parent="CanvasLayer"]
 anchors_preset = 8
@@ -56,4 +28,5 @@ size_flags_horizontal = 8
 
 [node name="Screenshot2024-10-13031926" type="Sprite2D" parent="CanvasLayer/Container"]
 position = Vector2(20, 20)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_2tlgp")
