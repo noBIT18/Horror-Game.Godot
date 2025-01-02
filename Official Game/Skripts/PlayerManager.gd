@@ -4,17 +4,30 @@ var SPEED = 5.0
 var is_moving = false
 const JUMP_VELOCITY = 4.5
 const GRAVITY = 9.8
+var Timestart
+@onready var Timers = $Timer
 @onready var wakingup = $AnimationPlayer
 @onready var Animations = $head/Camera3D/Flashlight/AnimationPlayer
 
+func _ready():
+	Timers.wait_time = 3
+	Timers.start()
+	Timers.timeout.connect(_on_Timers_timeout)
+	Timestart = true
 
-
+func _on_Timers_timeout():
+	Timestart = false
 
 func _physics_process(delta):
 	var current_speed = SPEED
 	var direction = Vector3.ZERO
 	
 	await wakingup
+	
+	if Timestart:
+		current_speed = 0
+	else:
+		current_speed = SPEED
 	
 		
 	if Input.is_action_pressed("forward"):

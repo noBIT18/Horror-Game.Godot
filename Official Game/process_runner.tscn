@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://2r7ovx73rtfo"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4we7s"]
+friction = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwghv"]
+size = Vector3(3.01287, 2.77539, 1)
+
+[node name="ProcessRunner" type="RigidBody3D"]
+transform = Transform3D(4.005, 0, 0, 0, 4.005, 0, 0, 0, 4.005, 0, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_4we7s")
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00832456, 0.887695, 0)
+shape = SubResource("BoxShape3D_gwghv")
+disabled = true

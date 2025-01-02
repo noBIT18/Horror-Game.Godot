@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://qbil515s8e3b"]
+[gd_scene load_steps=15 format=3 uid="uid://qbil515s8e3b"]
 
 [ext_resource type="Shader" path="res://Official Game/Shaders/dither.gdshader" id="1_i0kmh"]
 [ext_resource type="PackedScene" uid="uid://dmypxcelcieop" path="res://Official Game/player.tscn" id="1_rihjn"]
+[ext_resource type="PackedScene" uid="uid://2r7ovx73rtfo" path="res://Official Game/process_runner.tscn" id="2_cre6q"]
 [ext_resource type="PackedScene" uid="uid://dr4gqen4asrsi" path="res://Official Game/BGNOISE.tscn" id="3_etfmb"]
-[ext_resource type="PackedScene" uid="uid://bnyd77g1j3vf6" path="res://Official Game/Text3D.tscn" id="4_50j6w"]
 [ext_resource type="ArrayMesh" uid="uid://dfsvcli6ogwhx" path="res://Official Game/3d Models/OBJ/Beretta_M9.obj" id="5_a6wu6"]
 [ext_resource type="AudioStream" uid="uid://bjguof61x0jn5" path="res://Official Game/Sounds/Do it.MP3" id="6_en1sg"]
 [ext_resource type="PackedScene" uid="uid://da5c4j1wmor5x" path="res://Official Game/Objects/lamp.tscn" id="7_8u27r"]
@@ -51,9 +51,6 @@ auto_exposure_max_exposure_value = 0.81
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_djj1w"]
 render_priority = 0
 shader = ExtResource("1_i0kmh")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_80yoe"]
-viewport_path = NodePath("SubViewport")
 
 [node name="chapter1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.59095)
@@ -125,12 +122,6 @@ mesh = SubResource("BoxMesh_8aahr")
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("3_etfmb")]
 
-[node name="Sprite3D" parent="." instance=ExtResource("4_50j6w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 6.15763, -0.686603, 1.37488, 135.503)
-flip_h = true
-shaded = true
-texture = SubResource("ViewportTexture_80yoe")
-
 [node name="BerettaM9" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0170825, 0, -0.0104014, 0, 0.02, 0, 0.0104014, 0, 0.0170825, -0.569, 0.704, 97.396)
 mesh = ExtResource("5_a6wu6")
@@ -150,3 +141,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0616994, 0.666, 99.479)
 
 [node name="player" parent="." instance=ExtResource("1_rihjn")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.306898, 1.65961, 132.262)
+
+[node name="ProcessRunner" parent="." instance=ExtResource("2_cre6q")]
+transform = Transform3D(4.005, 0, 0, 0, 4.005, 0, 0, 0, 4.005, -0.48159, 0.696101, 103.187)
+freeze = true
