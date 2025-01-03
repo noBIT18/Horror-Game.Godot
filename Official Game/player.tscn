@@ -294,8 +294,6 @@ autoplay = "flashss"
 
 [node name="UI" parent="head/Camera3D" instance=ExtResource("4_lvvba")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="head/Camera3D"]
-
 [node name="RayCast3D" type="RayCast3D" parent="head"]
 transform = Transform3D(12.86, 0, 0, 0, -8.30516e-08, -6.61, 0, 1.9, -2.88932e-07, 0, 0, 0)
 script = ExtResource("5_4txwi")
