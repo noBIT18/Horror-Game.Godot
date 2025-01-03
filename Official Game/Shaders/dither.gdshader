@@ -74,5 +74,5 @@ void fragment() {
 	
 	
 	text_uv = ceil(uv * resolution) / resolution;
-	COLOR = color;
+	COLOR = text;
 }
