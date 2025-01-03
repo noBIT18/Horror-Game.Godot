@@ -4,7 +4,7 @@ extends RayCast3D
 
 func _process(delta):
 	var collider = get_collider()
-	var pointer = get_node("/root/chapter1/player/head/Camera3D/UI/CanvasLayer/Container/Screenshot2024-10-13031926")
+	var pointer = get_node("/root/chapter1/player/head/Camera3D/UI/CanvasLayer/Container/Sprite2D")
 	if is_colliding():
 		if collider and collider.has_method("on_interact"):
 			pointer.scale.x = 0.25
