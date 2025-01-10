@@ -1,5 +1,5 @@
 shader_type canvas_item;
-uniform vec4 color = vec4(0, 0, 0, 0.1);
+uniform vec4 color = vec4(1, 1, 1, 1);
 
 uniform bool roll = true;
 uniform float scanlines_width : hint_range(0.0, 0.5) = 0.25;
