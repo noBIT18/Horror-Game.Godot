@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://Official Game/Skripts/PlayerManager.gd" id="1_3mens"]
 [ext_resource type="Script" path="res://Official Game/Skripts/camera.gd" id="2_7tsai"]
 [ext_resource type="PackedScene" uid="uid://cwpovj26dtrhm" path="res://Official Game/flashlight.tscn" id="3_bxxxc"]
-[ext_resource type="Script" path="res://Official Game/Picked_up.gd" id="4_lumi2"]
 [ext_resource type="PackedScene" uid="uid://be3ekg6dii0dx" path="res://Official Game/ui.tscn" id="4_lvvba"]
 [ext_resource type="AudioStream" uid="uid://bxf8wt03hdvpc" path="res://Official Game/Sounds/WalkingSounds.MP3" id="4_somov"]
 [ext_resource type="Script" path="res://Official Game/Skripts/raycast.gd" id="5_4txwi"]
@@ -229,6 +228,20 @@ _data = {
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_86j8w"]
 radial_segments = 14
 
+[sub_resource type="GDScript" id="GDScript_xmbdl"]
+script/source = "extends Node3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func picks_up():
+	visible = true
+"
+
 [sub_resource type="Animation" id="Animation_cjvfc"]
 length = 0.001
 tracks/0/type = "value"
@@ -355,7 +368,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00204456, -0.00203639)
 
 [node name="Flashlight" parent="head/Camera3D" instance=ExtResource("3_bxxxc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53015, -0.132203, -0.386506)
-script = ExtResource("4_lumi2")
+script = SubResource("GDScript_xmbdl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="head/Camera3D/Flashlight"]
 libraries = {

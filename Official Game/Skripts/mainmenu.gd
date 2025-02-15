@@ -1,5 +1,6 @@
 extends Control
 
+@onready var sound = $"Mixkit-hard-typewriter-click-1119"
 @onready var PlayGame = $Button
 @onready var Quit = $Button2
 @onready var HTP = $Button3
@@ -16,16 +17,20 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if HTP.button_pressed:
+		sound.play()
 		for Button in AButtons:
 			Button.visible = false
 			Back.visible = true
 			HTPT.visible = true
 	if Back.button_pressed:
+		sound.play()
 		Back.visible = false
 		HTPT.visible = false
 		for Button in AButtons:
 			Button.visible = true
 	if PlayGame.button_pressed:
+		sound.play()
 		get_tree().change_scene_to_file("res://Official Game/Chapter1.tscn")
 	if Quit.button_pressed:
+		sound.play()
 		get_tree().quit()

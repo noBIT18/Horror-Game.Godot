@@ -2,8 +2,8 @@
 
 [ext_resource type="Shader" path="res://Official Game/Shaders/dither.gdshader" id="1_i0kmh"]
 [ext_resource type="PackedScene" uid="uid://dmypxcelcieop" path="res://Official Game/player.tscn" id="1_rihjn"]
-[ext_resource type="PackedScene" uid="uid://2r7ovx73rtfo" path="res://Official Game/process_runner.tscn" id="2_cre6q"]
 [ext_resource type="PackedScene" uid="uid://dr4gqen4asrsi" path="res://Official Game/BGNOISE.tscn" id="3_etfmb"]
+[ext_resource type="PackedScene" uid="uid://dusv0m34qjdmn" path="res://Official Game/Objects/Trigger_area.tscn" id="6_le5xm"]
 [ext_resource type="PackedScene" uid="uid://da5c4j1wmor5x" path="res://Official Game/Objects/lamp.tscn" id="7_8u27r"]
 [ext_resource type="PackedScene" uid="uid://c3sa3qhkvpg2r" path="res://Official Game/flashlight_pickup.tscn" id="8_licme"]
 
@@ -141,6 +141,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0616994, 0.666, 48.7652)
 [node name="player" parent="." instance=ExtResource("1_rihjn")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.306898, 1.65961, 132.262)
 
-[node name="ProcessRunner" parent="." instance=ExtResource("2_cre6q")]
-transform = Transform3D(4.005, 0, 0, 0, 4.005, 0, 0, 0, 4.005, -0.48159, 0.696101, 103.187)
-freeze = true
+[node name="Area3D" parent="." instance=ExtResource("6_le5xm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21724, 2.51658, 97.3948)

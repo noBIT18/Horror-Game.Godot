@@ -9,6 +9,7 @@ var Timestart
 @onready var wakingup = $AnimationPlayer
 @onready var Animations = $head/Camera3D/Flashlight/AnimationPlayer
 
+
 func _ready():
 	Timers.wait_time = 3
 	Timers.start()
@@ -23,6 +24,7 @@ func _physics_process(delta):
 	var direction = Vector3.ZERO
 	
 	await wakingup
+	
 	
 	if Timestart:
 		current_speed = 0
