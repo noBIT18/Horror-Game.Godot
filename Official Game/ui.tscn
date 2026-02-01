@@ -1,7 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://be3ekg6dii0dx"]
+[gd_scene load_steps=5 format=3 uid="uid://be3ekg6dii0dx"]
 
 [ext_resource type="Texture2D" uid="uid://boell6kp82cwe" path="res://Official Game/Textures/Pointer.png" id="1_2tlgp"]
-[ext_resource type="Shader" path="res://Official Game/Shaders/dither.gdshader" id="1_t3sne"]
+[ext_resource type="Shader" uid="uid://uufqpxsp6kcc" path="res://Official Game/Shaders/dither.gdshader" id="1_t3sne"]
+
+[sub_resource type="GDScript" id="GDScript_un3d7"]
+script/source = "extends Control
+
+@onready var text = $CanvasLayer/Label
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	text.text = globals.labeltext
+"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eoife"]
 shader = ExtResource("1_t3sne")
@@ -27,8 +41,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_un3d7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 173.0
+offset_right = 429.0
+offset_bottom = 210.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_eoife")

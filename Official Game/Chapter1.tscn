@@ -1,13 +1,25 @@
-[gd_scene load_steps=13 format=3 uid="uid://qbil515s8e3b"]
+[gd_scene load_steps=15 format=3 uid="uid://qbil515s8e3b"]
 
-[ext_resource type="Shader" path="res://Official Game/Shaders/dither.gdshader" id="1_i0kmh"]
+[ext_resource type="Shader" uid="uid://uufqpxsp6kcc" path="res://Official Game/Shaders/dither.gdshader" id="1_i0kmh"]
 [ext_resource type="PackedScene" uid="uid://dmypxcelcieop" path="res://Official Game/player.tscn" id="1_rihjn"]
 [ext_resource type="PackedScene" uid="uid://dr4gqen4asrsi" path="res://Official Game/BGNOISE.tscn" id="3_etfmb"]
 [ext_resource type="PackedScene" uid="uid://dusv0m34qjdmn" path="res://Official Game/Objects/Trigger_area.tscn" id="6_le5xm"]
 [ext_resource type="PackedScene" uid="uid://da5c4j1wmor5x" path="res://Official Game/Objects/lamp.tscn" id="7_8u27r"]
 [ext_resource type="PackedScene" uid="uid://c3sa3qhkvpg2r" path="res://Official Game/flashlight_pickup.tscn" id="8_licme"]
 
-[sub_resource type="GDScript" id="GDScript_3vv1t"]
+[sub_resource type="GDScript" id="GDScript_oa0ft"]
+script/source = "extends Node3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="Environment" id="Environment_twek8"]
 background_mode = 1
@@ -63,9 +75,29 @@ shader_parameter/roll_speed = 8.0
 shader_parameter/roll_variation = 1.8
 shader_parameter/distort_intensity = 0.05
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_8wwhf"]
+radius = 5.437812
+
+[sub_resource type="GDScript" id="GDScript_8wwhf"]
+script/source = "extends Area3D
+
+signal sigma
+
+func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed(\"Interact\"):
+		sigma.emit()
+
+func _on_body_entered(body: Node3D) -> void:
+	if body.is_in_group(\"player\"):
+		print(body.name, \" Entered\")
+		globals.labeltext = \"This flashlight might be useful.\"
+		await self.sigma
+		globals.labeltext = \" \"
+"
+
 [node name="chapter1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.59095)
-script = SubResource("GDScript_3vv1t")
+script = SubResource("GDScript_oa0ft")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_twek8")
@@ -139,7 +171,22 @@ mesh = SubResource("BoxMesh_8aahr")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0616994, 0.666, 48.7652)
 
 [node name="player" parent="." instance=ExtResource("1_rihjn")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.306898, 1.65961, 132.262)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.306898, 1.65961, 134.3414)
 
 [node name="Area3D" parent="." instance=ExtResource("6_le5xm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.21724, 2.51658, 97.3948)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09760797, 2.51658, 104.67736)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2091266, 0, 0)
+shape = SubResource("SphereShape3D_8wwhf")
+
+[node name="Area3D2" parent="." instance=ExtResource("6_le5xm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09760797, 2.51658, 53.066673)
+script = SubResource("GDScript_8wwhf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2091266, 0, 0)
+shape = SubResource("SphereShape3D_8wwhf")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D2" to="Area3D2" method="_on_body_entered"]

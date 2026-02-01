@@ -1,11 +1,11 @@
 [gd_scene load_steps=18 format=3 uid="uid://dmypxcelcieop"]
 
-[ext_resource type="Script" path="res://Official Game/Skripts/PlayerManager.gd" id="1_3mens"]
-[ext_resource type="Script" path="res://Official Game/Skripts/camera.gd" id="2_7tsai"]
+[ext_resource type="Script" uid="uid://boui43jcuv0h2" path="res://Official Game/Skripts/PlayerManager.gd" id="1_3mens"]
+[ext_resource type="Script" uid="uid://2p6786te5fej" path="res://Official Game/Skripts/camera.gd" id="2_7tsai"]
 [ext_resource type="PackedScene" uid="uid://cwpovj26dtrhm" path="res://Official Game/flashlight.tscn" id="3_bxxxc"]
 [ext_resource type="PackedScene" uid="uid://be3ekg6dii0dx" path="res://Official Game/ui.tscn" id="4_lvvba"]
 [ext_resource type="AudioStream" uid="uid://bxf8wt03hdvpc" path="res://Official Game/Sounds/WalkingSounds.MP3" id="4_somov"]
-[ext_resource type="Script" path="res://Official Game/Skripts/raycast.gd" id="5_4txwi"]
+[ext_resource type="Script" uid="uid://c0sfeib8r3lfe" path="res://Official Game/Skripts/raycast.gd" id="5_4txwi"]
 
 [sub_resource type="Animation" id="Animation_kc5au"]
 resource_name = "Pick Up"
@@ -218,9 +218,9 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aasbq"]
 _data = {
-"Pick Up": SubResource("Animation_kc5au"),
-"RESET": SubResource("Animation_2ts1h"),
-"Start": SubResource("Animation_yn382")
+&"Pick Up": SubResource("Animation_kc5au"),
+&"RESET": SubResource("Animation_2ts1h"),
+&"Start": SubResource("Animation_yn382")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1pxgx"]
@@ -336,9 +336,9 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cjnd1"]
 _data = {
-"RESET": SubResource("Animation_cjvfc"),
-"flashmoving": SubResource("Animation_ghnni"),
-"flashss": SubResource("Animation_1yu1l")
+&"RESET": SubResource("Animation_cjvfc"),
+&"flashmoving": SubResource("Animation_ghnni"),
+&"flashss": SubResource("Animation_1yu1l")
 }
 
 [node name="player" type="CharacterBody3D"]
@@ -349,7 +349,7 @@ autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_aasbq")
+&"": SubResource("AnimationLibrary_aasbq")
 }
 autoplay = "Start"
 
@@ -360,7 +360,7 @@ shape = SubResource("CapsuleShape3D_1pxgx")
 mesh = SubResource("CapsuleMesh_86j8w")
 
 [node name="head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.176694, -0.984266, 0, 0.984266, 0.176694, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.17669377, -0.984266, 0, 0.984266, 0.17669377, 0, 0, 0)
 script = ExtResource("2_7tsai")
 
 [node name="Camera3D" type="Camera3D" parent="head"]
@@ -372,7 +372,7 @@ script = SubResource("GDScript_xmbdl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="head/Camera3D/Flashlight"]
 libraries = {
-"": SubResource("AnimationLibrary_cjnd1")
+&"": SubResource("AnimationLibrary_cjnd1")
 }
 autoplay = "flashss"
 

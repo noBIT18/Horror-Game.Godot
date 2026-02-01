@@ -15,6 +15,10 @@ run/main_scene="res://Official Game/mainmenu.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+globals="*res://Official Game/Skripts/globals.gd"
+
 [display]
 
 window/size/viewport_width=428
